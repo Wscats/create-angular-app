@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",//组织代码的方式
+    //"target": "es5",//编译目标平台
+    "moduleResolution": "node",
+    "sourceMap": true,//把ts文件变异成js文件时，是否生成对应的SourceMap文件
+    "emitDecoratorMetadata": true,//让TypeScript支持为带有装饰器的声明生成元数据
+    "experimentalDecorators": true,//是否启用实验性装饰器特性
+    "lib": ["es2015", "dom"],
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true
+  }
+}
