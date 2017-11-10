@@ -20,7 +20,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 //@NgModule装饰器用来为模块定义元数据
 @NgModule({ //@NgModule 用来定义模块用的装饰器
-	imports: [
+	imports: [ //需要引入的外部NG模块
 		//包含了commonModule和applicationModule模块,封装在浏览器平台运行时的一些工具库
 		BrowserModule,
 		//表单相关的组件指令等，包含了[(ngModel)]
@@ -32,10 +32,19 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 		}, {
 			path: 'header',
 			component: HeaderComponent
+		}, {
+			//默认路由
+			path: '**',
+			component: WeuiComponent
+		}, {
+			path: '',
+			redirectTo: '/weui',
+			pathMatch: 'full'
 		}])
 		//RouterModule.forRoot(routes,{useHash: false}),
 	],
 	//导入模块所依赖的组件、指令等,用于指定这个模块的视图类
+	//本模块创建的组件，加入到这个元数据中的组件才会被编译
 	declarations: [AppComponent, WeuiComponent, HeaderComponent],
 	//全局注入服务
 	providers: [{
@@ -45,6 +54,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 	//标记出引导组件
 	//把这个AppComponent标记为引导 (bootstrap) 组件
 	//当Angular引导应用时它会在DOM中渲染AppComponent，并把结果放进index.html的元素内部
+	//声明启动引导哪个组件，必须是编译过的组件
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

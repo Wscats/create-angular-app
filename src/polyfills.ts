@@ -9,7 +9,8 @@ import 'core-js/es7/reflect';
 
 //一个为Zone规范提供的填充库，该规范已经提交给了TC39委员会，以决定是否要在JavaScript语言中进行标准化
 //开发人员应该能在兼容的版本中选择一个喜欢的 zone.js 版本，而不用等Angular升级
-require('zone.js/dist/zone');
+//require('zone.js/dist/zone');
+import 'zone.js/dist/zone'
 
 
 /*if (process.env.ENV === 'production') {
